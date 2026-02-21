@@ -24,7 +24,7 @@ cities = [
 data = []
 
 for city in cities:
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}"
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
 
     try:
         response = requests.get(url)
