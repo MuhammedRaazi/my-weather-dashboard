@@ -1,11 +1,12 @@
 import requests
 import pandas as pd
 from datetime import datetime
-from dotenv import load_dotenv
 import os
 
-load_dotenv()
-API_KEY = os.getenv("API_KEY")
+api_key = os.getenv("WEATHER_API_KEY")
+
+if not api_key:
+    raise ValueError("API key not found!")
 
 cities = [
     "Chennai",
