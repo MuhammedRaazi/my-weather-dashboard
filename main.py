@@ -52,6 +52,24 @@ df = pd.DataFrame(data)
 # Ensure data folder exists
 os.makedirs("data", exist_ok=True)
 
+# Feature Engineering
+
+df["Timestamp"] = pd.to_datetime(df["Timestamp"])
+
+df["Temp_Diff"] = df["Temperature_C"] - df["Feels_Like_C"]
+
+df["Comfort_Level"] = df["Temperature_C"].apply(
+    lambda x: "Cool" if x < 20 else "Moderate" if x <= 30 else "Hot"
+)
+
+df["Wind_Category"] = df["Wind_Speed"].apply(
+    lambda x: "Calm" if x < 2 else "Breezy" if x <= 5 else "Windy"
+)
+
+df["Hour"] = df["Timestamp"].dt.hour
+df["Date"] = df["Timestamp"].dt.date
+
+
 # Save file
 df.to_csv(
     "data/weather_data.csv",
