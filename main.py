@@ -53,6 +53,11 @@ df = pd.DataFrame(data)
 os.makedirs("data", exist_ok=True)
 
 # Save file
-df.to_csv("data/weather_data.csv", index=False)
+df.to_csv(
+    "data/weather_data.csv",
+    mode="a",
+    header=not os.path.exists("data/weather_data.csv"),
+    index=False,
+)
 
 print("Data saved successfully!")
