@@ -1,6 +1,6 @@
 import requests
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timezone
 import os
 
 api_key = os.getenv("WEATHER_API_KEY")
@@ -39,7 +39,7 @@ for city in cities:
             "Pressure": weather["main"]["pressure"],
             "Wind_Speed": weather["wind"]["speed"],
             "Weather_Description": weather["weather"][0]["description"],
-            "Timestamp": datetime.now(),
+            "Timestamp": datetime.now(timezone.utc),
         }
 
         data.append(city_data)
