@@ -675,6 +675,7 @@ name = "weather-dashboard"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "certifi" },
     { name = "ipykernel" },
     { name = "numpy" },
     { name = "pandas" },
@@ -684,6 +685,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "certifi", specifier = ">=2026.1.4" },
     { name = "ipykernel", specifier = ">=7.2.0" },
     { name = "numpy", specifier = ">=2.4.2" },
     { name = "pandas", specifier = ">=3.0.1" },
